@@ -51,3 +51,10 @@ body {
   padding-top: 3rem;
   padding-bottom: 2rem;
 }
+
+.coming-soon {
+  filter: blur(0.35px);
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
