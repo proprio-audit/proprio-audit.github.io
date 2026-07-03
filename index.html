@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="On the Vulnerability and Robustness of Proprioception in VLA Robot Policies">
-  <meta name="keywords" content="ProprioGuard, Robotics, Proprioception, Safety">
+  <meta name="description" content="A False Sense of State: On the Vulnerability of the Proprioception Channel in Vision-Language-Action Robot Policies">
+  <meta name="keywords" content="ProprioAudit, VLA, Robotics, Proprioception, Adversarial Attacks, Safety">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ProprioGuard</title>
+  <title>ProprioAudit</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -31,8 +31,8 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-two-thirds is-centered has-text-centered">
-          <h1 class="title is-1 publication-title">ProprioGuard</h1>
-          <h2 class="subtitle is-3 publication-subtitle">On the Vulnerability and Robustness of Proprioception in VLA Robot Policies</h2>
+          <h1 class="title is-1 publication-title">ProprioAudit</h1>
+          <h2 class="subtitle is-3 publication-subtitle">A False Sense of State: On the Vulnerability of the Proprioception Channel in Vision-Language-Action Robot Policies</h2>
           <div class="is-size-5 publication-authors">
             <span class="author-block">Anonymous Authors</span>
           </div>
@@ -83,8 +83,20 @@
         <h2 class="title is-2">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            [ABSTRACT PLACEHOLDER — summarize the problem ProprioGuard addresses, the approach,
-            and the key results. Replace this paragraph with your actual abstract text.]
+            Vision-based attacks on Vision-Language-Action (VLA) models have received increasing
+            attention as these policies are rapidly adopted for robotic control. However, the
+            vulnerability of non-visual inputs, particularly proprioception, remains underexplored.
+            We present <span class="dnerf">ProprioAudit</span>, a framework for studying
+            inference-time adversarial attacks and defenses targeting the proprioceptive input
+            channel of VLAs. Our attack leverages the velocity field of the VLA action head to
+            optimize small proprioceptive perturbations that induce significant task failures across
+            representative VLAs in both simulation and real-world settings. We introduce a defense
+            based on stochastic proprioceptive conditioning, which gives the model an internal
+            mechanism for comparing proprioception-conditioned and proprioception-independent action
+            predictions. We show that this structure enables accurate and rapid detection of
+            adversarial proprioceptive inputs. Our results show that proprioceptive conditioning
+            introduces a largely undefended attack surface, and the multimodal structure of VLAs
+            can be leveraged as an effective defense mechanism.
           </p>
         </div>
       </div>
@@ -141,7 +153,7 @@
   <div class="container content">
     <h2 class="title is-2">BibTeX</h2>
     <pre><code>@article{proprioguard,
-  title   = {On the Vulnerability and Robustness of Proprioception in VLA Robot Policies},
+  title   = {A False Sense of State: On the Vulnerability of the Proprioception Channel in Vision-Language-Action Robot Policies},
   author  = {Anonymous Authors},
   journal = {[VENUE PLACEHOLDER]},
   year    = {[YEAR PLACEHOLDER]},

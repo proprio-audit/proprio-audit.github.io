@@ -52,6 +52,11 @@ body {
   padding-bottom: 2rem;
 }
 
+.dnerf {
+  font-variant: small-caps;
+  font-style: italic;
+}
+
 .coming-soon {
   filter: blur(0.35px);
   opacity: 0.5;
