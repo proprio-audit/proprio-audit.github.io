@@ -52,6 +52,18 @@ body {
   padding-bottom: 2rem;
 }
 
+.pipeline-figure {
+  margin: 0;
+}
+
+.pipeline-figure img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
 .dnerf {
   font-variant: small-caps;
   font-style: italic;
