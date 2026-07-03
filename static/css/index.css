@@ -54,14 +54,15 @@ body {
 
 .pipeline-figure {
   margin: 0;
+  text-align: center;
 }
 
 .pipeline-figure img {
-  width: 100%;
-  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  max-width: 75%;
   height: auto;
   border-radius: 8px;
-  display: block;
 }
 
 .dnerf {
