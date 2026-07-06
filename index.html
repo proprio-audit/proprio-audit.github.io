@@ -87,7 +87,7 @@
             Vision-based attacks on Vision-Language-Action (VLA) models have received increasing
             attention as these policies are rapidly adopted for robotic control. However, the
             vulnerability of non-visual inputs, particularly proprioception, remains underexplored.
-            We present <span class="dnerf">ProprioAudit</span>, a framework for studying
+            We present ProprioAudit, a framework for studying
             inference-time adversarial attacks and defenses targeting the proprioceptive input
             channel of VLAs. Our attack leverages the velocity field of the VLA action head to
             optimize small proprioceptive perturbations that induce significant task failures across
@@ -111,12 +111,17 @@
     <!-- Overview figure -->
     <div class="columns is-centered">
       <div class="column is-two-thirds">
-        <h2 class="title is-2 has-text-centered">Attack</h2>
+        <h2 class="title is-2 has-text-centered">Attacking Proprioception</h2>
         <figure class="pipeline-figure">
           <img src="./static/images/attack-framework.png" alt="Attack Pipeline diagram">
         </figure>
         <div class="content has-text-justified" style="margin-top: 1em;">
-          <p>[ATTACK PIPELINE CAPTION PLACEHOLDER]</p>
+          <p>
+            We adapt the attack optimization formulation from prior work on attacking
+            vision-based diffusion policies, and apply it to the proprioceptive input channel
+            of VLAs. We implement two variants that differ in how the adversarial objective
+            is constructed.
+          </p>
         </div>
       </div>
     </div>
