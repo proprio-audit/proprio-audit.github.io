@@ -70,6 +70,22 @@ body {
   font-style: italic;
 }
 
+.key-finding {
+  background: #e8f3fd;
+  border-left: 4px solid #2b7de9;
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+}
+
+.key-finding-label {
+  font-weight: 700;
+  color: #1a5cb8;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 .coming-soon {
   filter: blur(0.35px);
   opacity: 0.5;

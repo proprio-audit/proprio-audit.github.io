@@ -107,17 +107,82 @@
 
 <section class="section">
   <div class="container">
+
+    <!-- Overview figure -->
     <div class="columns is-centered">
       <div class="column is-two-thirds">
-        <h2 class="title is-2 has-text-centered">Attack Pipeline</h2>
+        <h2 class="title is-2 has-text-centered">Attack</h2>
         <figure class="pipeline-figure">
           <img src="./static/images/attack-framework.png" alt="Attack Pipeline diagram">
         </figure>
         <div class="content has-text-justified" style="margin-top: 1em;">
-          <p>[ATTACK PIPELINE CAPTION PLACEHOLDER — describe the attack mechanism and figure.]</p>
+          <p>[ATTACK PIPELINE CAPTION PLACEHOLDER]</p>
         </div>
       </div>
     </div>
+
+    <!-- Two attack methods side by side -->
+    <div class="columns is-centered" style="margin-top: 2rem;">
+      <div class="column is-two-thirds">
+        <div class="columns">
+
+          <div class="column has-text-centered">
+            <h3 class="title is-4">Single-Step (SS) Attack</h3>
+            <img src="./static/images/attack_ss.gif" alt="Single-Step attack illustration"
+                 style="width: 100%; border-radius: 8px;">
+            <div class="content has-text-justified" style="margin-top: 0.75em;">
+              <p>
+                Optimizes a small proprioceptive perturbation to disrupt the VLA's velocity
+                prediction at a single randomly-sampled denoising step. Requires no
+                ground-truth demonstrations — the policy's own clean prediction serves as
+                the target.
+              </p>
+            </div>
+          </div>
+
+          <div class="column has-text-centered">
+            <h3 class="title is-4">End-to-End (E2E) Attack</h3>
+            <img src="./static/images/attack_e2e.gif" alt="End-to-End attack illustration"
+                 style="width: 100%; border-radius: 8px;">
+            <div class="content has-text-justified" style="margin-top: 0.75em;">
+              <p>
+                Backpropagates through the entire action generation chain to maximize
+                deviation from the ground-truth demonstration action, directly targeting
+                the final output of the policy.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Results table -->
+    <div class="columns is-centered" style="margin-top: 2rem;">
+      <div class="column is-two-thirds">
+        <figure class="pipeline-figure">
+          <img src="./static/images/attack_results_table.png" alt="Attack results table">
+        </figure>
+      </div>
+    </div>
+
+    <!-- Key Finding -->
+    <div class="columns is-centered" style="margin-top: 1.5rem;">
+      <div class="column is-two-thirds">
+        <div class="key-finding">
+          <p class="key-finding-label">Key Finding</p>
+          <p>
+            Contrary to prior work on diffusion-based policies — where single-step attacks
+            are more effective — E2E consistently outperforms SS here. Flow matching's Euler
+            sampler is fully deterministic: with no noise re-injected between steps, an early
+            perturbation compounds along one fixed trajectory rather than being reset. This
+            makes whole-trajectory optimization strictly more effective than targeting a
+            single step.
+          </p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
