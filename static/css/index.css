@@ -70,6 +70,18 @@ body {
   font-style: italic;
 }
 
+.result-model-label {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #363636;
+}
+
+.result-task-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.4rem;
+}
+
 .key-finding {
   background: #e8f3fd;
   border-left: 4px solid #2b7de9;

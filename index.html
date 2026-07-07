@@ -88,14 +88,14 @@
             attention as these policies are rapidly adopted for robotic control. However, the
             vulnerability of non-visual inputs, particularly proprioception, remains underexplored.
             We present ProprioAudit, a framework for studying
-            inference-time adversarial attacks and defenses targeting the proprioceptive input
+            inference-time adversarial attacks and defenses targeting the proprioception input
             channel of VLAs. Our attack leverages the velocity field of the VLA action head to
-            optimize small proprioceptive perturbations that induce significant task failures across
+            optimize small proprioception perturbations that induce significant task failures across
             representative VLAs in both simulation and real-world settings. We introduce a defense
-            based on stochastic proprioceptive conditioning, which gives the model an internal
+            based on stochastic proprioception conditioning, which gives the model an internal
             mechanism for comparing proprioception-conditioned and proprioception-independent action
             predictions. We show that this structure enables accurate and rapid detection of
-            adversarial proprioceptive inputs. Our results show that proprioceptive conditioning
+            adversarial proprioception inputs. Our results show that proprioception conditioning
             introduces a largely undefended attack surface, and the multimodal structure of VLAs
             can be leveraged as an effective defense mechanism.
           </p>
@@ -118,7 +118,7 @@
         <div class="content has-text-justified" style="margin-top: 1em;">
           <p>
             We adapt the attack optimization formulation from prior work on attacking
-            vision-based diffusion policies, and apply it to the proprioceptive input channel
+            vision-based diffusion policies, and apply it to the proprioception input channel
             of VLAs. We implement two variants that differ in how the adversarial objective
             is constructed.
           </p>
@@ -133,13 +133,12 @@
 
           <div class="column has-text-centered">
             <h3 class="title is-4">Single-Step (SS) Attack</h3>
-            <img src="./static/images/attack_ss.gif" alt="Single-Step attack illustration"
-                 style="width: 100%; border-radius: 8px;">
+            <div class="placeholder-media">[GIF: attack_ss.gif]</div>
             <div class="content has-text-justified" style="margin-top: 0.75em;">
               <p>
-                Optimizes a small proprioceptive perturbation to disrupt the VLA's velocity
+                Optimizes a small proprioception perturbation to disrupt the VLA's velocity
                 prediction at a single randomly-sampled denoising step. Requires no
-                ground-truth demonstrations — the policy's own clean prediction serves as
+                ground-truth demonstrations. The policy's own clean prediction serves as
                 the target.
               </p>
             </div>
@@ -147,8 +146,7 @@
 
           <div class="column has-text-centered">
             <h3 class="title is-4">End-to-End (E2E) Attack</h3>
-            <img src="./static/images/attack_e2e.gif" alt="End-to-End attack illustration"
-                 style="width: 100%; border-radius: 8px;">
+            <div class="placeholder-media">[GIF: attack_e2e.gif]</div>
             <div class="content has-text-justified" style="margin-top: 0.75em;">
               <p>
                 Backpropagates through the entire action generation chain to maximize
@@ -193,31 +191,76 @@
 
 <section class="section">
   <div class="container">
+
+    <!-- Defense overview -->
     <div class="columns is-centered">
       <div class="column is-two-thirds">
-        <h2 class="title is-2 has-text-centered">Defence Pipeline</h2>
+        <h2 class="title is-2 has-text-centered">ProprioAudit's Defense</h2>
         <figure class="pipeline-figure">
-          <img src="./static/images/defense-framework.png" alt="Defence Pipeline diagram">
+          <img src="./static/images/defense-framework.png" alt="Defense Pipeline diagram">
         </figure>
         <div class="content has-text-justified" style="margin-top: 1em;">
-          <p>[DEFENCE PIPELINE CAPTION PLACEHOLDER — describe the stochastic proprioceptive conditioning defence.]</p>
+          <p>
+            We propose a defense that fine-tunes a VLA policy with stochastic proprioception
+            dropout, teaching it a learned null proprioception embedding. The fine-tuned policy
+            supports two action generation paths: one conditioned on the full proprioception
+            state and one conditioned on the null embedding. At inference time, we continuously
+            compare the velocity predictions of these two paths. A sustained divergence in
+            their magnitude signals an adversarial attack on the proprioception input.
+          </p>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="section">
-  <div class="container">
-    <h2 class="title is-2" style="text-align: center;">Results</h2>
-    <div class="columns is-centered">
-      <div class="column is-two-fifths is-centered has-text-centered">
-        <div class="placeholder-media">[RESULT CLIP / FIGURE PLACEHOLDER]</div>
-      </div>
-      <div class="column is-two-fifths is-centered has-text-centered">
-        <div class="placeholder-media">[RESULT CLIP / FIGURE PLACEHOLDER]</div>
+    <!-- Defense results -->
+    <div class="columns is-centered" style="margin-top: 2.5rem;">
+      <div class="column is-two-thirds">
+        <h3 class="title is-4 has-text-centered">Defense Results</h3>
+
+        <!-- Row 1: π₀ -->
+        <p class="has-text-centered result-model-label">π<sub>0</sub></p>
+        <div class="columns" style="margin-top: 0.5rem;">
+          <div class="column has-text-centered">
+            <p class="result-task-label">Sponge → Bowl</p>
+            <div class="placeholder-media">[VIDEO: pi0_sponge.mp4]</div>
+          </div>
+          <div class="column has-text-centered">
+            <p class="result-task-label">Marker → Cup</p>
+            <div class="placeholder-media">[VIDEO: pi0_marker.mp4]</div>
+          </div>
+        </div>
+
+        <!-- Row 2: GR00T N1.5 -->
+        <p class="has-text-centered result-model-label" style="margin-top: 1.5rem;">GR00T N1.5</p>
+        <div class="columns" style="margin-top: 0.5rem;">
+          <div class="column has-text-centered">
+            <p class="result-task-label">Sponge → Bowl</p>
+            <div class="placeholder-media">[VIDEO: groot_sponge.mp4]</div>
+          </div>
+          <div class="column has-text-centered">
+            <p class="result-task-label">Marker → Cup</p>
+            <div class="placeholder-media">[VIDEO: groot_marker.mp4]</div>
+          </div>
+        </div>
+
       </div>
     </div>
+
+    <!-- Key Finding -->
+    <div class="columns is-centered" style="margin-top: 1.5rem;">
+      <div class="column is-two-thirds">
+        <div class="key-finding">
+          <p class="key-finding-label">Key Finding</p>
+          <p>
+            Our proposed defense effectively detects all forms of proprioception perturbation
+            (random, SS, and E2E), outperforming existing approaches across both models and
+            tasks. Critically, detection is not only accurate but fast: attacks are flagged
+            with consistently low detection times.
+          </p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
