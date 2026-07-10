@@ -137,9 +137,9 @@
                  style="width: 100%; border-radius: 8px;">
             <div class="content has-text-justified" style="margin-top: 0.75em;">
               <p>
-                Optimizes a small proprioception perturbation to disrupt the VLA's velocity
-                prediction at a single randomly-sampled denoising step. Requires no
-                ground-truth demonstrations. The policy's own clean prediction serves as
+                Optimizes a perturbation to disrupt the VLA's velocity
+                prediction at a single, randomly-sampled denoising step. Requires no
+                ground-truth demonstrations. The policy's clean prediction serves as
                 the target.
               </p>
             </div>
@@ -151,8 +151,8 @@
                  style="width: 100%; border-radius: 8px;">
             <div class="content has-text-justified" style="margin-top: 0.75em;">
               <p>
-                Backpropagates through the entire action generation chain to maximize
-                deviation from the ground-truth demonstration action, directly targeting
+                Backpropagates through the entire action generation chain and optimizes a perturbation to maximize
+                deviation from the ground-truth demonstration action. E2E directly targets
                 the final output of the policy.
               </p>
             </div>
@@ -197,7 +197,7 @@
     <!-- Defense overview -->
     <div class="columns is-centered">
       <div class="column is-two-thirds">
-        <h2 class="title is-2 has-text-centered">ProprioAudit's Defense</h2>
+        <h2 class="title is-2 has-text-centered">ProprioAudit Defense</h2>
         <figure class="pipeline-figure">
           <img src="./static/images/defense-framework.png" alt="Defense Pipeline diagram">
         </figure>
