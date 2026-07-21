@@ -162,12 +162,81 @@
       </div>
     </div>
 
-    <!-- Results table -->
+    <!-- Attack results table -->
     <div class="columns is-centered" style="margin-top: 2rem;">
       <div class="column is-two-thirds">
-        <figure class="pipeline-figure">
-          <img src="./static/images/attack_results_table.png" alt="Attack results table">
-        </figure>
+        <div class="results-table-wrap">
+          <table class="results-table">
+            <caption class="results-table-caption">
+              Task success rate (%) under untargeted proprioception attack
+              (ε<sub>norm</sub> = 0.3). Simulation averaged over 50 trials per task,
+              real-world over 10 trials.
+            </caption>
+            <thead>
+              <tr>
+                <th rowspan="2">Method</th>
+                <th colspan="4" class="group-header">Simulation (LIBERO)</th>
+                <th colspan="2" class="group-header">Real World</th>
+              </tr>
+              <tr>
+                <th>Spatial</th>
+                <th>Object</th>
+                <th>Goal</th>
+                <th>Long</th>
+                <th>Marker</th>
+                <th>Sponge</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="model-row">
+                <td colspan="7">Model: π<sub>0</sub></td>
+              </tr>
+              <tr>
+                <td>Clean</td>
+                <td>95.4</td><td>91.8</td><td>98.2</td><td>72.0</td>
+                <td>70.0</td><td>100.0</td>
+              </tr>
+              <tr>
+                <td>Random</td>
+                <td>86.6</td><td>83.4</td><td>85.8</td><td>57.4</td>
+                <td>20.0</td><td>10.0</td>
+              </tr>
+              <tr>
+                <td>SS Attack</td>
+                <td>84.5</td><td>76.6</td><td>70.0</td><td>60.4</td>
+                <td>0.0</td><td>0.0</td>
+              </tr>
+              <tr>
+                <td>E2E Attack</td>
+                <td>64.0</td><td>52.5</td><td>23.0</td><td>31.2</td>
+                <td>0.0</td><td>0.0</td>
+              </tr>
+              <tr class="model-row">
+                <td colspan="7">Model: GR00T N1.5</td>
+              </tr>
+              <tr>
+                <td>Clean</td>
+                <td>92.0</td><td>93.0</td><td>86.0</td><td>77.0</td>
+                <td class="pending">—</td><td class="pending">—</td>
+              </tr>
+              <tr>
+                <td>Random</td>
+                <td>81.5</td><td>58.0</td><td>76.0</td><td>36.5</td>
+                <td class="pending">—</td><td class="pending">—</td>
+              </tr>
+              <tr>
+                <td>SS Attack</td>
+                <td>62.5</td><td>50.5</td><td>59.0</td><td>50.0</td>
+                <td class="pending">—</td><td class="pending">—</td>
+              </tr>
+              <tr>
+                <td>E2E Attack</td>
+                <td>32.5</td><td>28.0</td><td>52.0</td><td>13.0</td>
+                <td class="pending">—</td><td class="pending">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
@@ -245,6 +314,57 @@
           </div>
         </div>
 
+      </div>
+    </div>
+
+    <!-- Detection performance table -->
+    <div class="columns is-centered" style="margin-top: 2.5rem;">
+      <div class="column is-two-thirds">
+        <div class="results-table-wrap">
+          <table class="results-table">
+            <caption class="results-table-caption">
+              Runtime attack detection performance (AUROC&nbsp;↑) under the E2E attack.
+              We compare against baselines: Layer Regression (LR), Feature Squeezing (FS),
+              Sentinel (STAC), and RND-OE. Simulation results averaged over 50 trials,
+              real-world over 10 trials.
+            </caption>
+            <thead>
+              <tr>
+                <th rowspan="2">Policy</th>
+                <th colspan="5" class="group-header">Simulation (LIBERO)</th>
+                <th colspan="1" class="group-header">Real World</th>
+              </tr>
+              <tr>
+                <th>ProprioAudit</th>
+                <th>LR</th>
+                <th>FS</th>
+                <th>STAC</th>
+                <th>RND-OE</th>
+                <th>ProprioAudit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>π<sub>0</sub></td>
+                <td class="best">95.34 <span class="pm">± 3.29</span></td>
+                <td>57.64 <span class="pm">± 1.82</span></td>
+                <td>49.17 <span class="pm">± 1.85</span></td>
+                <td>68.57 <span class="pm">± 1.73</span></td>
+                <td>75.47 <span class="pm">± 8.48</span></td>
+                <td class="pending">—</td>
+              </tr>
+              <tr>
+                <td>GR00T N1.5</td>
+                <td class="best">94.56 <span class="pm">± 1.15</span></td>
+                <td>89.20 <span class="pm">± 7.40</span></td>
+                <td>15.45 <span class="pm">± 8.21</span></td>
+                <td>40.05 <span class="pm">± 2.92</span></td>
+                <td>87.28 <span class="pm">± 6.02</span></td>
+                <td class="pending">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 

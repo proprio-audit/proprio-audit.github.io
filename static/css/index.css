@@ -70,6 +70,84 @@ body {
   font-style: italic;
 }
 
+.results-table-caption {
+  font-size: 0.88rem;
+  color: #555;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  caption-side: top;
+}
+
+.results-table-wrap {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.results-table {
+  width: auto;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.results-table th,
+.results-table td {
+  padding: 0.45rem 1.2rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.results-table thead tr:first-child th {
+  border-top: 2px solid #363636;
+  border-bottom: 1px solid #ccc;
+}
+
+.results-table tbody tr:last-child td {
+  border-bottom: 2px solid #363636;
+}
+
+.results-table th {
+  font-weight: 600;
+  background: #fafafa;
+}
+
+.results-table td:first-child,
+.results-table th:first-child {
+  text-align: left;
+}
+
+.results-table .group-header {
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: #444;
+  border-bottom: 1px solid #ccc;
+}
+
+.results-table .best {
+  font-weight: 700;
+  color: #1a4a8a;
+}
+
+.results-table .pending {
+  color: #aaa;
+}
+
+.results-table .model-row td {
+  background: #f0f4f8;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1a4a8a;
+  text-align: center;
+  padding-top: 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.results-table .pm {
+  font-size: 0.78rem;
+  color: #888;
+}
+
 .result-model-label {
   font-weight: 700;
   font-size: 1.1rem;
