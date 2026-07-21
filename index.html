@@ -32,7 +32,6 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-two-thirds is-centered has-text-centered">
-          <h1 class="title is-1 publication-title">ProprioAudit</h1>
           <h2 class="subtitle is-3 publication-subtitle">A False Sense of State: On the Vulnerability of the Proprioception Channel in Vision-Language-Action Robot Policies</h2>
           <div class="is-size-5 publication-authors">
             <span class="author-block">Anonymous Authors</span>
@@ -84,19 +83,21 @@
         <h2 class="title is-2">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Vision-based attacks on Vision-Language-Action (VLA) models have received increasing
-            attention as these policies are rapidly adopted for robotic control. However, the
-            vulnerability of non-visual inputs, particularly proprioception, remains underexplored.
-            We present ProprioAudit, a framework for studying
-            inference-time adversarial attacks and defenses targeting the proprioception input
-            channel of VLAs. Our attack leverages the velocity field of the VLA action head to
-            optimize small proprioception perturbations that induce significant task failures across
-            representative VLAs in both simulation and real-world settings. We introduce a defense
-            based on stochastic proprioception conditioning, which gives the model an internal
-            mechanism for comparing proprioception-conditioned and proprioception-independent action
-            predictions. We show that this structure enables accurate and rapid detection of
-            adversarial proprioception inputs. Our results show that proprioception conditioning
-            introduces a largely undefended attack surface, and the multimodal structure of VLAs
+            Prior work on the adversarial robustness of Vision-Language-Action (VLA) models has
+            focused on attacks through the visual and language channels. However, VLAs recently
+            condition action generation on multi-modal inputs including proprioception, and the
+            robustness of this channel remains underexplored. We present ProprioAudit, a framework
+            for systematic study of inference-time adversarial attacks and defenses on the
+            proprioception channel. We show that an optimized bias injected into a robot's sensing
+            pipeline reduces average task success rate by up to 56% in simulation and causes 100%
+            task failure in real-world settings, while remaining within normal sensor variance.
+            To address this vulnerability, we propose a defense based on stochastic proprioceptive
+            conditioning dropout, which gives the model a mechanism to compare
+            proprioception-conditioned and proprioception-independent action predictions at inference
+            time. Our detector achieves an average AUROC of 95% across representative VLA
+            architectures, outperforming both adversarial-example detection and policy failure
+            prediction baselines by up to 20%. Our results show that proprioception conditioning
+            introduces a largely undefended attack surface, and the multi-modal structure of VLAs
             can be leveraged as an effective defense mechanism.
           </p>
         </div>
